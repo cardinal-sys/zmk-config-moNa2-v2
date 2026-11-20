@@ -16,6 +16,8 @@ manifest:
       url-base: https://github.com/zettaface
     - name: kot149       # <-- Mouse Gesture (upstream)
       url-base: https://github.com/kot149
+    - name: cardinal-sys  # <-- Cardinal 版の自前フォーク群（加速・Smart Num・Swapper・listeners）
+      url-base: https://github.com/cardinal-sys
     - name: shakushakupanda  # <-- mouse gesture RPC module
       url-base: https://github.com/shakushakupanda
   projects:
@@ -136,5 +138,23 @@ manifest:
     - name: zmk-module-mouse-gesture-rpc
       remote: shakushakupanda
       revision: main
+
+    # --- Cardinal 版から移植するモジュール（リビジョンは Cardinal 側の固定値と同じ）---
+    - name: zmk-pointing-acceleration-alpha
+      remote: cardinal-sys
+      revision: 780dfcd
+      path: modules/zmk-pointing-acceleration-alpha
+    - name: zmk-listeners
+      remote: cardinal-sys
+      revision: c240cea
+      path: modules/zmk-listeners
+    - name: zmk-tri-state
+      remote: cardinal-sys
+      revision: "2007896"
+      path: modules/zmk-tri-state
+    - name: zmk-auto-layer
+      remote: cardinal-sys
+      revision: dfa7c69
+      path: modules/zmk-auto-layer
   self:
     path: config

@@ -68,7 +68,8 @@
         reg = <0>;
         spi-max-frequency = <2000000>;
         irq-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        cpi = <600>;
+        cpi = <1400>;
+        force-awake;
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
@@ -79,51 +80,82 @@
 };
 
 /* ─────────────────────────────────────────────────────────────
-   scroll_runtime_input_processor をスクロール変換器として上書き
+   〈Release Recollection〉Cardinal 版の入力処理を移植
+   ・ジェスチャ 8 種（レイヤー 7〜14）… Cardinal.overlay と同一定義
+   ・SNIPE（15）・CPI 切替（4）… ドライバ内蔵機能は無いので scaler で代替
+   ・スクロール（5）… DYA の scroll_runtime_input_processor（Studio で調整可）
    ────────────────────────────────────────────────────── */
 &scroll_runtime_input_processor {
     x-codes = <INPUT_REL_X>;
     y-codes = <INPUT_REL_Y>;
     xy-to-scroll-enabled;
-    active-layers = <0x000000C0>; /* layer6 + layer7 */
+    active-layers = <0x00000020>; /* layer5 (SCROLL) */
     scale-multiplier = <1>;
-    scale-divisor = <1>;   /* Studio UI の倍率がそのまま実効値 (1.0x基準)。固定減速は listener 側 zip_scroll_scaler */
+    scale-divisor = <1>;
 };
 
 &mouse_runtime_input_processor {
 };
 
-/* ─────────────────────────────────────────────────────────────
-   kot149 mouse-gesture input processor (Phase 5)
-   トップレベルの新規ノードなので `/ { ... }` で包む
-   ────────────────────────────────────────────────────── */
 / {
-    mg: mouse_gesture {
-        compatible = "zmk,input-processor-mouse-gesture";
-        #input-processor-cells = <0>;
-        /* Activate only while &mg_set is held so normal mouse/scroll layers do not trigger gestures. */
-        stroke-size = <200>;
-        idle-timeout-ms = <150>;
-        gesture-cooldown-ms = <500>;
-
-        placeholder {
-            pattern = <GESTURE_UP GESTURE_RIGHT>;
-            bindings = <&kp ESC>;
+    input_processors {
+        tb_drop_all: tb_drop_all {
+            compatible = "zmk,input-processor-scaler";
+            #input-processor-cells = <2>;
+            type = <INPUT_EV_REL>;
+            codes = <INPUT_REL_X INPUT_REL_Y INPUT_REL_WHEEL INPUT_REL_HWHEEL>;
         };
+
+        /* SNIPE: 旧 PMW3610_ALT_SNIPE_CPI_DIVIDOR=4 の代替（1/4 に減速） */
+        /* CPI 切替(layer4): 旧 cpi-layers=<4 1600>。1400→1600 は 8/7 倍 */
+        zip_gE: zip_gE { compatible = "zmk,input-processor-mouse-gesture"; #input-processor-cells = <0>; stroke-size = <60>; movement-threshold = <6>; idle-timeout-ms = <110>; gesture-cooldown-ms = <130>; enable-eager-mode; up { pattern = <GESTURE_UP>; bindings = <&gE_up>; }; down { pattern = <GESTURE_DOWN>; bindings = <&gE_down>; }; left { pattern = <GESTURE_LEFT>; bindings = <&gE_left>; }; right { pattern = <GESTURE_RIGHT>; bindings = <&gE_right>; }; };
+        zip_gR: zip_gR { compatible = "zmk,input-processor-mouse-gesture"; #input-processor-cells = <0>; stroke-size = <60>; movement-threshold = <6>; idle-timeout-ms = <110>; gesture-cooldown-ms = <130>; enable-eager-mode; up { pattern = <GESTURE_UP>; bindings = <&gR_up>; }; down { pattern = <GESTURE_DOWN>; bindings = <&gR_down>; }; left { pattern = <GESTURE_LEFT>; bindings = <&gR_left>; }; right { pattern = <GESTURE_RIGHT>; bindings = <&gR_right>; }; };
+        zip_gS: zip_gS { compatible = "zmk,input-processor-mouse-gesture"; #input-processor-cells = <0>; stroke-size = <60>; movement-threshold = <6>; idle-timeout-ms = <110>; gesture-cooldown-ms = <130>; enable-eager-mode; up { pattern = <GESTURE_UP>; bindings = <&gS_up>; }; down { pattern = <GESTURE_DOWN>; bindings = <&gS_down>; }; left { pattern = <GESTURE_LEFT>; bindings = <&gS_left>; }; right { pattern = <GESTURE_RIGHT>; bindings = <&gS_right>; }; };
+        zip_gB: zip_gB { compatible = "zmk,input-processor-mouse-gesture"; #input-processor-cells = <0>; stroke-size = <60>; movement-threshold = <6>; idle-timeout-ms = <110>; gesture-cooldown-ms = <130>; enable-eager-mode; up { pattern = <GESTURE_UP>; bindings = <&gB_up>; }; down { pattern = <GESTURE_DOWN>; bindings = <&gB_down>; }; left { pattern = <GESTURE_LEFT>; bindings = <&gB_left>; }; right { pattern = <GESTURE_RIGHT>; bindings = <&gB_right>; }; };
+        zip_gT: zip_gT { compatible = "zmk,input-processor-mouse-gesture"; #input-processor-cells = <0>; stroke-size = <60>; movement-threshold = <6>; idle-timeout-ms = <110>; gesture-cooldown-ms = <130>; enable-eager-mode; up { pattern = <GESTURE_UP>; bindings = <&gT_up>; }; down { pattern = <GESTURE_DOWN>; bindings = <&gT_down>; }; left { pattern = <GESTURE_LEFT>; bindings = <&gT_left>; }; right { pattern = <GESTURE_RIGHT>; bindings = <&gT_right>; }; };
+        zip_gA: zip_gA { compatible = "zmk,input-processor-mouse-gesture"; #input-processor-cells = <0>; stroke-size = <60>; movement-threshold = <6>; idle-timeout-ms = <110>; gesture-cooldown-ms = <130>; enable-eager-mode; up { pattern = <GESTURE_UP>; bindings = <&gA_up>; }; down { pattern = <GESTURE_DOWN>; bindings = <&gA_down>; }; left { pattern = <GESTURE_LEFT>; bindings = <&gA_left>; }; right { pattern = <GESTURE_RIGHT>; bindings = <&gA_right>; }; };
+        zip_gD: zip_gD { compatible = "zmk,input-processor-mouse-gesture"; #input-processor-cells = <0>; stroke-size = <60>; movement-threshold = <6>; idle-timeout-ms = <110>; gesture-cooldown-ms = <130>; enable-eager-mode; up { pattern = <GESTURE_UP>; bindings = <&gD_up>; }; down { pattern = <GESTURE_DOWN>; bindings = <&gD_down>; }; left { pattern = <GESTURE_LEFT>; bindings = <&gD_left>; }; right { pattern = <GESTURE_RIGHT>; bindings = <&gD_right>; }; };
+        zip_gW: zip_gW { compatible = "zmk,input-processor-mouse-gesture"; #input-processor-cells = <0>; stroke-size = <60>; movement-threshold = <6>; idle-timeout-ms = <110>; gesture-cooldown-ms = <130>; enable-eager-mode; up { pattern = <GESTURE_UP>; bindings = <&gW_up>; }; down { pattern = <GESTURE_DOWN>; bindings = <&gW_down>; }; left { pattern = <GESTURE_LEFT>; bindings = <&gW_left>; }; right { pattern = <GESTURE_RIGHT>; bindings = <&gW_right>; }; };
     };
+
     inertial_scroll: inertial_scroll {
         compatible = "zmk,input-processor-inertial-scroll";
         status = "okay";
         #input-processor-cells = <0>;
     };
-
 };
 
 &trackball_central_listener {
     status = "okay";
     device = <&trackball_central>;
-    /* Keep scroll independent of pointer scaling. Emit one step per 60
-     * counts: gentler than 1/40, while retaining a lower onset threshold
-     * than the original 1/100. Fractional counts are accumulated. */
-    input-processors = <&mg &scroll_runtime_input_processor &mouse_runtime_input_processor &zip_scroll_scaler 1 60 &inertial_scroll>;
+    input-processors = <&mouse_runtime_input_processor &pointer_accel &scroll_runtime_input_processor &zip_scroll_scaler 1 60 &inertial_scroll>;
+
+    mouse_cpi_up { layers = <4>;  input-processors = <&tb_drop_all 8 7 &pointer_accel>; };
+    snipe_pure   { layers = <15>; input-processors = <&tb_drop_all 1 4>; };
+
+    gesture_e { layers = <7>;  input-processors = <&zip_gE &tb_drop_all 0 1>; };
+    gesture_r { layers = <8>;  input-processors = <&zip_gR &tb_drop_all 0 1>; };
+    gesture_s { layers = <9>;  input-processors = <&zip_gS &tb_drop_all 0 1>; };
+    gesture_b { layers = <10>; input-processors = <&zip_gB &tb_drop_all 0 1>; };
+    gesture_t { layers = <11>; input-processors = <&zip_gT &tb_drop_all 0 1>; };
+    gesture_a { layers = <12>; input-processors = <&zip_gA &tb_drop_all 0 1>; };
+    gesture_d { layers = <13>; input-processors = <&zip_gD &tb_drop_all 0 1>; };
+    gesture_w { layers = <14>; input-processors = <&zip_gW &tb_drop_all 0 1>; };
+};
+
+/* ジェスチャのレイヤー自動切替（旧 layer_listeners の gesture_auto） */
+/ {
+    layer_listeners {
+        compatible = "zmk,layer-listeners";
+        gesture_auto { layers = <7 8 9 10 11 12 13 14>; bindings = <&mouse_gesture_on &mouse_gesture_off>; };
+    };
+};
+
+&pointer_accel {
+    input-type = <INPUT_EV_REL>;
+    codes = <INPUT_REL_X INPUT_REL_Y>;
+    sensitivity = <1000>;
+    max-factor = <1800>;
+    curve-type = <1>;
+    sensor-dpi = <800>;
 };
