@@ -1,0 +1,25 @@
+# 図の表記: Shift+数字などを、実際に出る記号で表示する（キーボードの動作には影響しない）
+parse_config:
+  raw_binding_map:
+    "&kp LS(NUMBER_1)": {t: '!'}
+    "&kp LS(NUMBER_2)": {t: '@'}
+    "&kp LS(NUMBER_3)": {t: '#'}
+    "&kp LS(NUMBER_4)": {t: '$'}
+    "&kp LS(NUMBER_5)": {t: '%'}
+    "&kp LS(NUMBER_6)": {t: '^'}
+    "&kp LS(NUMBER_7)": {t: '&'}
+    "&kp LS(NUMBER_8)": {t: '*'}
+    "&kp LS(NUMBER_9)": {t: '('}
+    "&kp LS(NUMBER_0)": {t: ')'}
+    "&kp LS(MINUS)": {t: '_'}
+    "&kp LS(EQUAL)": {t: '+'}
+    "&kp LS(LEFT_BRACKET)": {t: '{'}
+    "&kp LS(RIGHT_BRACKET)": {t: '}'}
+    "&kp LS(BACKSLASH)": {t: '|'}
+    "&kp LS(SEMICOLON)": {t: ':'}
+    "&kp LS(SINGLE_QUOTE)": {t: '"'}
+    "&kp LS(COMMA)": {t: '<'}
+    "&kp LS(PERIOD)": {t: '>'}
+    "&kp LS(SLASH)": {t: '?'}
+    "&kp LS(GRAVE)": {t: '~'}
+    "&kp LA(Y)": {t: '¥'}

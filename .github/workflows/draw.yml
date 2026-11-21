@@ -6,6 +6,7 @@ on:
   push:
     paths:
       - "config/mona2.keymap"
+      - "config/keymap/**"
       - "keymap_drawer.config.yaml"
       - "config/mona2.dtsi"
 
