@@ -76,7 +76,7 @@ swapper: swapper {
     #binding-cells = <0>;
     bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;
 
-    ignored-key-positions = <10 15>;
+    ignored-key-positions = <10>;
 };
 
 swapper_rev: swapper_rev {
@@ -85,5 +85,5 @@ swapper_rev: swapper_rev {
     #binding-cells = <0>;
     bindings = <&kt LGUI>, <&kp LS(TAB)>, <&kt LGUI>;
 
-    ignored-key-positions = <10 15>;
+    ignored-key-positions = <10>;
 };
