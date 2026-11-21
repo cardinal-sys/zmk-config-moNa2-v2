@@ -116,6 +116,13 @@
             key-positions = <39 40>;
             bindings = <&kp ESCAPE>;
         };
+
+        smart_num_combo {
+            slot = <12>;
+            display-name = "Smart Num (G+@)";
+            key-positions = <14 15>;
+            bindings = <&smart_num 16>;
+        };
     };
 
     macros {
