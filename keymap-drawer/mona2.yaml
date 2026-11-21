@@ -16,7 +16,7 @@ layers:
   - {t: D, h: GESTURE_D}
   - F
   - {t: G, h: Bluetooth}
-  - Sft+2
+  - '@'
   - H
   - J
   - {t: K, h: SCROLL}
@@ -28,12 +28,12 @@ layers:
   - V
   - {t: B, h: GESTURE_B}
   - {t: TAB, h: '&smart_snipe 15'}
-  - Sft+;
+  - ':'
   - N
   - M
   - ','
   - .
-  - {t: Sft+=, h: LEFT CONTROL}
+  - {t: +, h: LEFT CONTROL}
   - LEFT CONTROL
   - LEFT GUI
   - LEFT ALT
@@ -87,46 +87,46 @@ layers:
   - {t: ▽, type: trans}
   - Gui+Sft+4
   SIGN:
-  - Sft+5
-  - Sft+1
-  - Sft+3
-  - Sft+4
-  - Sft+7
+  - '%'
+  - '!'
+  - '#'
+  - $
+  - '&'
   - '['
   - ']'
-  - Sft+[
-  - Sft+]
-  - Sft+`
+  - '{'
+  - '}'
+  - '~'
   - {t: TAB, h: LEFT SHIFT}
-  - Sft+'
+  - '"'
   - ''''
   - '`'
-  - Sft+/
+  - '?'
   - '='
-  - Sft+9
-  - Sft+0
+  - (
+  - )
   - '-'
-  - Sft+2
+  - '@'
   - ;
   - LEFT SHIFT
-  - Alt+Y
-  - Sft+\
+  - ¥
+  - '|'
   - .
   - ','
-  - Sft+=
-  - Sft+8
-  - Sft+,
-  - Sft+.
-  - Sft+-
+  - +
+  - '*'
+  - <
+  - '>'
+  - _
   - \
-  - Sft+;
+  - ':'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - /
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   NUM:
@@ -157,9 +157,9 @@ layers:
   - Gui+Y
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - Sft+=
+  - +
   - '-'
-  - Sft+8
+  - '*'
   - /
   - .
   - ','
@@ -661,7 +661,7 @@ layers:
   - {t: D, h: GESTURE_D}
   - F
   - {t: G, h: Bluetooth}
-  - Sft+2
+  - '@'
   - H
   - J
   - K
@@ -673,12 +673,12 @@ layers:
   - V
   - {t: B, h: GESTURE_B}
   - TAB
-  - Sft+;
+  - ':'
   - N
   - M
   - ','
   - .
-  - {t: Sft+=, h: LEFT CONTROL}
+  - {t: +, h: LEFT CONTROL}
   - LEFT CONTROL
   - LEFT GUI
   - LEFT ALT
@@ -713,12 +713,12 @@ layers:
   - {t: ',', h: LEFT SHIFT}
   - .
   - /
-  - Sft+8
+  - '*'
   - '-'
-  - Sft+=
-  - Sft+=
+  - +
+  - +
   - '-'
-  - Sft+8
+  - '*'
   - /
   - .
   - ','
