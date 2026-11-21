@@ -16,7 +16,6 @@ layers:
   - {t: D, h: GESTURE_D}
   - F
   - {t: G, h: Bluetooth}
-  - '&smart_num 16'
   - Sft+2
   - H
   - J
@@ -60,7 +59,6 @@ layers:
   - F8
   - F7
   - F6
-  - ESC
   - Sft+LEFT ARROW
   - LEFT ARROW
   - LEFT ARROW
@@ -104,7 +102,6 @@ layers:
   - ''''
   - '`'
   - Sft+/
-  - /
   - '='
   - Sft+9
   - Sft+0
@@ -148,7 +145,6 @@ layers:
   - Gui+C
   - Gui+V
   - END
-  - {t: ▽, type: trans}
   - '='
   - KP 6
   - KP 7
@@ -192,7 +188,6 @@ layers:
   - '&msc 64936'
   - '&msc 4255645696'
   - {t: ▽, type: trans}
-  - '&mkp MB1'
   - '&safari_reload_once'
   - '&mkp MB3'
   - '&mkp MB2'
@@ -236,7 +231,6 @@ layers:
   - '&msc 64936'
   - '&msc 4255645696'
   - GESTURE_R
-  - {t: default, h: toggle}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -280,7 +274,6 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {type: held}
-  - {t: ▽, type: trans}
   - '&studio_unlock'
   - '&bt_disc_0'
   - '&bt_disc_1'
@@ -317,7 +310,6 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - LEFT SHIFT
-  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -371,7 +363,6 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
   - LEFT SHIFT
   - LEFT SHIFT
   - {t: ▽, type: trans}
@@ -415,7 +406,6 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
   - LEFT SHIFT
   - LEFT SHIFT
   - {t: ▽, type: trans}
@@ -449,7 +439,6 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - LEFT SHIFT
-  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -503,7 +492,6 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
   - LEFT SHIFT
   - LEFT SHIFT
   - {t: ▽, type: trans}
@@ -540,7 +528,6 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {type: held}
-  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -591,7 +578,6 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
   - LEFT SHIFT
   - LEFT SHIFT
   - {t: ▽, type: trans}
@@ -625,7 +611,6 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - LEFT SHIFT
-  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -676,7 +661,6 @@ layers:
   - {t: D, h: GESTURE_D}
   - F
   - {t: G, h: Bluetooth}
-  - '&smart_num 16'
   - Sft+2
   - H
   - J
@@ -720,7 +704,6 @@ layers:
   - KP 8
   - KP 7
   - KP 6
-  - {t: ▽, type: trans}
   - '='
   - KP 6
   - KP 7
