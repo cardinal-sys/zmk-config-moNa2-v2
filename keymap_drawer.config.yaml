@@ -1,6 +1,8 @@
 # 図の表記: Shift+数字などを、実際に出る記号で表示する（キーボードの動作には影響しない）
 parse_config:
   raw_binding_map:
+    # FUNCTION への入口は td_enter（長押し=レイヤー1）。ENTER の長押しが FUNCTION と分かる表記にする
+    "&td_enter": {t: ENTER, h: FUNCTION}
     "&kp LS(NUMBER_1)": {t: '!'}
     "&kp LS(NUMBER_2)": {t: '@'}
     "&kp LS(NUMBER_3)": {t: '#'}
@@ -23,3 +25,10 @@ parse_config:
     "&kp LS(SLASH)": {t: '?'}
     "&kp LS(GRAVE)": {t: '~'}
     "&kp LA(Y)": {t: '¥'}
+
+# 図の見た目: FUNCTION は td_enter（タップダンス）で入るため、keymap-drawer が
+# 「押し続けるキー」を自動で判定できない。他のレイヤーの held と同じ色（#fdd）を CSS で当てる。
+# 位置40 = 右親指の ENTER（td_enter）。キー配置を変えたらこの番号も見直す。
+draw_config:
+  svg_extra_style: |
+    .layer-FUNCTION .keypos-40 rect.key { fill: #fdd; }
