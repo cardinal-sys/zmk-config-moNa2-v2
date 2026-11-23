@@ -8,6 +8,7 @@ on:
       - "config/mona2.keymap"
       - "config/keymap/**"
       - "keymap_drawer.config.yaml"
+      - "keymap-drawer/extra_combos.yaml"
       - "config/mona2.dtsi"
 
 jobs:
@@ -22,4 +23,5 @@ jobs:
       json_path: "config"
       config_path: "keymap_drawer.config.yaml" # config file, ignored if not exists
       output_folder: "keymap-drawer"
+      extra_keymap_yaml: "mona2:keymap-drawer/extra_combos.yaml" # runtime_combo_defaults は読めないため、コンボは別YAMLで足す
       destination: "both"

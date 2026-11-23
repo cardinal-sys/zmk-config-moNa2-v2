@@ -1,0 +1,19 @@
+# コンボ定義（図に描くための写し）。
+# 正本は config/mona2.keymap の runtime_combo_defaults（DYA Studio で編集する初期値）。
+# keymap-drawer は runtime_combo_defaults を読めないため、ここへ同じ内容を書く。
+# コンボを足す・直したときは、config/mona2.keymap とこのファイルの両方を合わせる。
+# 位置番号は MONA2 の42キー（エンコーダー押し込みを除いた番号）。
+combos:
+  - {p: [7, 8], k: {t: SCROLL, h: toggle}}
+  - {p: [18, 17], k: MB2}
+  - {p: [31, 30], k: {t: DRAG, h: 'off'}}
+  - {p: [16, 17], k: '!'}
+  - {p: [28, 29], k: '?'}
+  - {p: [9, 20], k: Gui+Q}
+  - {p: [20, 32], k: Gui+W}
+  - {p: [32, 41], k: Gui+M}
+  - {p: [10, 11], k: TAB}
+  - {p: [0, 1], k: Sft+TAB}
+  - {p: [18, 19], k: ENTER}
+  - {p: [39, 40], k: ESC}
+  - {p: [14, 15], k: {t: Smart, h: NUM}}
