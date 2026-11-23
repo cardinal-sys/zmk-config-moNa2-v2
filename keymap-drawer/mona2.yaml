@@ -41,7 +41,7 @@ layers:
   - {t: SPACE, h: NUM}
   - '&mkp MB1'
   - BACKSPACE
-  - '&td_enter'
+  - {t: ENTER, h: FUNCTION}
   - {t: DELETE, h: LEFT ALT}
   FUNCTION:
   - F5
